@@ -23,7 +23,19 @@ class ApiClient {
      * @param onError
      * @returns {Promise<AxiosResponse<any>>}
      */
-    sendData(slug, postData, onSuccess, onError) {
+    async sendData(slug, postData, onSuccess, onError) {
+        response = await axios({
+            method: 'post',
+            url: "https://reqres.in/api/users",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: JSON.stringify({
+                name: "paul rudd",
+            movies: ["I Love You Man", "Role Models"]
+            }),
+        })
+        console.log(response.data);
         return axios({
             method: 'post',
             url: this.baseUrl + slug,
