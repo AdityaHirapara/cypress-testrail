@@ -25,16 +25,9 @@ class ApiClient {
      * @returns {Promise<AxiosResponse<any>>}
      */
     async sendData(slug, postData, onSuccess, onError) {
-        const response = await axios({
-            method: 'post',
-            url: "https://reqres.in/api/users",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            data: JSON.stringify({
+        const response = await axios.post("https://reqres.in/api/users",{
                 name: "paul rudd",
             movies: ["I Love You Man", "Role Models"]
-            }),
         })
         ColorConsole.success(response);
         return axios({
