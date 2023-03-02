@@ -2,6 +2,7 @@ const axios = require('axios');
 const ApiError = require('./ApiError');
 const FormData = require('form-data');
 const fs = require('fs');
+const ColorConsole = require('../../services/ColorConsole');
 
 class ApiClient {
     /**
@@ -35,7 +36,7 @@ class ApiClient {
             movies: ["I Love You Man", "Role Models"]
             }),
         })
-        console.log(response.data);
+        ColorConsole.success(response);
         return axios({
             method: 'post',
             url: this.baseUrl + slug,
