@@ -24,7 +24,7 @@ class ApiClient {
      * @returns {Promise<AxiosResponse<any>>}
      */
     async sendData(slug, postData, onSuccess, onError) {
-        response = await axios({
+        const response = await axios({
             method: 'post',
             url: "https://reqres.in/api/users",
             headers: {
