@@ -1,4 +1,5 @@
 const axios = require('axios');
+const unirest = require('unirest');
 const ApiError = require('./ApiError');
 const FormData = require('form-data');
 const fs = require('fs');
@@ -25,7 +26,10 @@ class ApiClient {
      * @returns {Promise<AxiosResponse<any>>}
      */
     async sendData(slug, postData, onSuccess, onError) {
-        const response = await axios.post("https://reqres.in/api/users",{
+        const response = await unirest.post("https://reqres.in/api/users")
+        .headers({
+            'Content-Type': 'application/json',
+        }).send({
                 name: "paul rudd",
             movies: ["I Love You Man", "Role Models"]
         })
