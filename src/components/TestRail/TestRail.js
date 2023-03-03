@@ -22,7 +22,6 @@ class TestRail {
      * @param name
      * @param description
      * @param callback
-     * @returns {Promise<AxiosResponse<*>>}
      */
     createRun(projectId, milestoneId, suiteId, name, description, callback) {
         const postData = {
@@ -59,7 +58,6 @@ class TestRail {
      *
      * @param runId
      * @param caseIds
-     * @returns {Promise<AxiosResponse<any>>}
      */
     updateRun(runId, caseIds) {
         const postData = {
@@ -144,7 +142,6 @@ class TestRail {
      *
      * @param {string} runID
      * @param {Result[]} testResults
-     * @returns {Promise<AxiosResponse<*>>}
      */
     sendBatchResults(runID, testResults) {
         const url = '/add_results_for_cases/' + runID;

@@ -21,7 +21,6 @@ class ApiClient {
      * @param postData
      * @param onSuccess
      * @param onError
-     * @returns {Promise<AxiosResponse<any>>}
      */
     async sendData(slug, postData, onSuccess, onError) {
         return unirest.post(this.baseUrl + slug)
@@ -46,7 +45,6 @@ class ApiClient {
      * @param screenshotPath
      * @param onSuccess
      * @param onError
-     * @returns {Promise<AxiosResponse<any>>}
      */
     sendScreenshot(resultId, screenshotPath, onSuccess, onError) {
         const formData = new FormData();
