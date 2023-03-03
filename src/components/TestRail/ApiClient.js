@@ -1,9 +1,7 @@
-const axios = require('axios');
 const unirest = require('unirest');
 const ApiError = require('./ApiError');
 const FormData = require('form-data');
 const fs = require('fs');
-const ColorConsole = require('../../services/ColorConsole');
 
 class ApiClient {
     /**
