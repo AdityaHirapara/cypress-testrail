@@ -177,6 +177,11 @@ class TestRail {
             url,
             postData,
             (response) => {
+                ColorConsole.success('  response.status: ' + response.status);
+                ColorConsole.success('  response.statusText: ' + response.statusText);
+                ColorConsole.success('  response.headers: ' + JSON.stringify(response.headers));
+                ColorConsole.success('  response.config: ' + JSON.stringify(response.config));
+                ColorConsole.success('  response.data: ' + JSON.stringify(response.data));
                 ColorConsole.success(' Results sent to TestRail for: ' + testResults.map((r) => 'C' + r.getCaseId()));
 
                 if (this.isScreenshotsEnabled) {
