@@ -26,27 +26,13 @@ class ApiClient {
      * @returns {Promise<AxiosResponse<any>>}
      */
     async sendData(slug, postData, onSuccess, onError) {
-        const response = await unirest.post("https://reqres.in/api/users")
-        .headers({
-            'Content-Type': 'application/json',
-        }).send({
-                name: "paul rudd",
-            movies: ["I Love You Man", "Role Models"]
-        })
-        ColorConsole.success(response);
-        return axios({
-            method: 'post',
-            url: this.baseUrl + slug,
-            headers: {
+        return unirest.post(this.baseUrl + slug)
+            .headers({
                 'Content-Type': 'application/json',
-            },
-            auth: {
-                username: this.username,
-                password: this.password,
-            },
-            data: JSON.stringify(postData),
-        })
+            }).auth(this.username, this.password)
+            .send(postData)
             .then((response) => {
+                response.data = response.body;
                 onSuccess(response);
             })
             .catch((error) => {
